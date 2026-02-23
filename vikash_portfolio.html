@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikash Singh Naruka | Portfolio</title>
+    <meta name="description" content="Portfolio of Vikash Singh Naruka, specializing in AI Training, Data Annotation, and Market Research.">
+    
+    <!-- Tailwind CSS (via CDN for zero-build setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config & Custom Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        primary: '#3b82f6',
+                        primaryHover: '#2563eb'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+
+        /* Scroll Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-300 font-sans antialiased selection:bg-primary selection:text-white relative">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 top-0 bg-darkBg/80 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Name -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-white font-bold text-xl tracking-wider">
+                        VIKASH<span class="text-primary">.</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#summary" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Summary</a>
+                        <a href="#skills" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#projects" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#education" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                        <a href="#contact" class="bg-primary hover:bg-primaryHover text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-blue-500/30">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-cardBg border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#summary" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Summary</a>
+                <a href="#skills" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#projects" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#education" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Education</a>
+                <a href="#contact" class="mobile-link text-primary font-bold block px-3 py-2 rounded-md text-base">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 flex flex-col items-center justify-center min-h-[90vh] text-center fade-in-section">
+        <span class="text-primary font-medium tracking-wide mb-4 uppercase text-sm">Welcome to my portfolio</span>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Vikash Singh Naruka
+        </h1>
+        <p class="text-lg md:text-2xl text-gray-400 max-w-2xl mb-8 leading-relaxed">
+            Detail-oriented researcher & tech enthusiast seeking remote roles in <span class="text-gray-200 font-semibold">AI Training, Data Annotation,</span> and <span class="text-gray-200 font-semibold">Market Research</span>.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 text-sm text-gray-400">
+            <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-primary"></i> Jaipur, Rajasthan</div>
+            <div class="hidden sm:block text-gray-600">•</div>
+            <div class="flex items-center gap-2"><i class="fas fa-phone text-primary"></i> +91 6376357871</div>
+            <div class="hidden sm:block text-gray-600">•</div>
+            <div class="flex items-center gap-2"><i class="fas fa-envelope text-primary"></i> vikash.digitalwork@gmail.com</div>
+        </div>
+
+        <div class="flex gap-4">
+            <a href="#contact" class="bg-primary hover:bg-primaryHover text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg shadow-blue-500/25">
+                Hire Me
+            </a>
+            <a href="#summary" class="bg-transparent border border-gray-600 hover:border-gray-400 text-white px-8 py-3 rounded-full font-medium transition-all">
+                Explore Work
+            </a>
+        </div>
+    </header>
+
+    <!-- Summary Section -->
+    <section id="summary" class="py-20 px-4 md:px-8 border-t border-gray-800 bg-cardBg/30">
+        <div class="max-w-6xl mx-auto fade-in-section">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-3xl font-bold text-white">Professional Summary</h2>
+                <div class="h-px bg-gray-700 flex-grow"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6 text-gray-400 leading-relaxed">
+                    <p class="text-lg">
+                        I am a detail-oriented 12th-grade graduate with a strong technical foundation. Highly proficient in AI prompting, data categorization, and basic software development. 
+                    </p>
+                    <p>
+                        I am actively seeking a remote role to leverage my analytical skills and programming knowledge in improving machine learning models. I am disciplined, quick to master proprietary software, and committed to delivering "zero-error" data entry and high-fidelity research reporting.
+                    </p>
+                    
+                    <div class="pt-4">
+                        <h3 class="text-xl font-semibold text-white mb-4">Key Strengths</h3>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="bg-cardBg p-4 rounded-lg border border-gray-700/50">
+                                <h4 class="text-primary font-semibold mb-1"><i class="fas fa-clock mr-2"></i> Reliability</h4>
+                                <p class="text-sm">Disciplined approach to remote work with a strict focus on meeting deadlines.</p>
+                            </div>
+                            <div class="bg-cardBg p-4 rounded-lg border border-gray-700/50">
+                                <h4 class="text-primary font-semibold mb-1"><i class="fas fa-laptop-code mr-2"></i> Adaptability</h4>
+                                <p class="text-sm">Quick to master new annotation platforms and custom proprietary software.</p>
+                            </div>
+                            <div class="bg-cardBg p-4 rounded-lg border border-gray-700/50 sm:col-span-2">
+                                <h4 class="text-primary font-semibold mb-1"><i class="fas fa-bullseye mr-2"></i> Accuracy</h4>
+                                <p class="text-sm">Committed to "zero-error" data entry and high-fidelity research reporting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure Sidebar -->
+                <div class="bg-cardBg p-6 rounded-xl border border-gray-700 h-fit">
+                    <h3 class="text-xl font-semibold text-white mb-6 border-b border-gray-700 pb-3">Technical Infrastructure</h3>
+                    <ul class="space-y-5">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-desktop text-primary mt-1 w-5"></i>
+                            <div>
+                                <strong class="block text-gray-200">Hardware</strong>
+                                <span class="text-sm text-gray-400">Personal Laptop (Windows OS)</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-wifi text-primary mt-1 w-5"></i>
+                            <div>
+                                <strong class="block text-gray-200">Connectivity</strong>
+                                <span class="text-sm text-gray-400">High-speed Fiber Internet (Reliable for video calls & large datasets)</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-calendar-check text-primary mt-1 w-5"></i>
+                            <div>
+                                <strong class="block text-gray-200">Availability</strong>
+                                <span class="text-sm text-gray-400">40+ hours per week. Immediate joining; flexible for weekend shifts.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-home text-primary mt-1 w-5"></i>
+                            <div>
+                                <strong class="block text-gray-200">Location</strong>
+                                <span class="text-sm text-gray-400">Based in Jaipur. Fully equipped home office for 100% remote collaboration.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 md:px-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto fade-in-section">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-3xl font-bold text-white">Skills & Competencies</h2>
+                <div class="h-px bg-gray-700 flex-grow"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Core Competency Cards -->
+                <div class="bg-cardBg p-6 rounded-xl border border-gray-800 hover:border-primary/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-robot text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">AI Training & RLHF</h3>
+                    <p class="text-sm text-gray-400">Interacting with LLMs (ChatGPT, Gemini) to strictly test response accuracy, logic, and safety protocols.</p>
+                </div>
+
+                <div class="bg-cardBg p-6 rounded-xl border border-gray-800 hover:border-primary/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-tags text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Data Annotation</h3>
+                    <p class="text-sm text-gray-400">High attention to detail in labeling, tagging, and categorizing multi-modal datasets (text, image, code).</p>
+                </div>
+
+                <div class="bg-cardBg p-6 rounded-xl border border-gray-800 hover:border-primary/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-code text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Programming</h3>
+                    <p class="text-sm text-gray-400">Capable of evaluating AI-generated code snippets utilizing foundational knowledge of modern programming.</p>
+                </div>
+
+                <div class="bg-cardBg p-6 rounded-xl border border-gray-800 hover:border-primary/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition">
+                        <i class="fas fa-search text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Digital Research</h3>
+                    <p class="text-sm text-gray-400">Expert in verifying facts, cross-referencing sources, and gathering complex market intelligence.</p>
+                </div>
+            </div>
+
+            <!-- Technical Skills Tags -->
+            <div class="bg-cardBg p-8 rounded-xl border border-gray-800">
+                <h3 class="text-xl font-semibold text-white mb-6">Technical Arsenal</h3>
+                
+                <div class="mb-6">
+                    <h4 class="text-sm font-medium text-gray-400 mb-3 uppercase tracking-wider">Programming Languages</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-gray-800 border border-gray-700 text-gray-200 rounded-lg text-sm font-medium"><i class="fab fa-python text-blue-400 mr-2"></i>Python (Basic)</span>
+                        <span class="px-4 py-2 bg-gray-800 border border-gray-700 text-gray-200 rounded-lg text-sm font-medium"><i class="fab fa-js text-yellow-400 mr-2"></i>JavaScript (Basic)</span>
+                        <span class="px-4 py-2 bg-gray-800 border border-gray-700 text-gray-200 rounded-lg text-sm font-medium"><i class="fab fa-html5 text-orange-500 mr-2"></i>HTML / CSS</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-medium text-gray-400 mb-3 uppercase tracking-wider">Software & Tools</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-gray-800 border border-gray-700 text-gray-200 rounded-lg text-sm font-medium"><i class="fab fa-google text-green-400 mr-2"></i>Google Workspace (Docs, Sheets, Drive)</span>
+                        <span class="px-4 py-2 bg-gray-800 border border-gray-700 text-gray-200 rounded-lg text-sm font-medium"><i class="fas fa-file-excel text-green-600 mr-2"></i>Microsoft Excel</span>
+                        <span class="px-4 py-2 bg-gray-800 border border-gray-700 text-gray-200 rounded-lg text-sm font-medium"><i class="fas fa-keyboard text-gray-400 mr-2"></i>Data Entry (30+ WPM)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 md:px-8 border-t border-gray-800 bg-cardBg/30">
+        <div class="max-w-6xl mx-auto fade-in-section">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-3xl font-bold text-white">Projects & Initiatives</h2>
+                <div class="h-px bg-gray-700 flex-grow"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-cardBg rounded-xl p-8 border border-gray-800 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">AI Evaluation Project</h3>
+                        <div class="bg-gray-800 p-2 rounded-full text-primary">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Actively experimenting with prompt engineering to understand how different inputs affect LLM output quality, logical reasoning, and hallucination rates. 
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-semibold px-2 py-1 bg-gray-800 text-gray-300 rounded">Prompt Engineering</span>
+                        <span class="text-xs font-semibold px-2 py-1 bg-gray-800 text-gray-300 rounded">LLM Testing</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-cardBg rounded-xl p-8 border border-gray-800 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Technical Upskilling</h3>
+                        <div class="bg-gray-800 p-2 rounded-full text-primary">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Currently completing self-paced modules in Data Labeling methodologies and advanced web research techniques to ensure high-quality standards in modern AI training.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-semibold px-2 py-1 bg-gray-800 text-gray-300 rounded">Data Labeling</span>
+                        <span class="text-xs font-semibold px-2 py-1 bg-gray-800 text-gray-300 rounded">Web Research</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-4 md:px-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto fade-in-section">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-3xl font-bold text-white">Education</h2>
+                <div class="h-px bg-gray-700 flex-grow"></div>
+            </div>
+
+            <div class="max-w-3xl">
+                <div class="relative pl-8 border-l-2 border-gray-700">
+                    <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+                    
+                    <div class="bg-cardBg p-6 rounded-xl border border-gray-800">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-white">Higher Secondary School (12th Grade)</h3>
+                            <span class="text-primary font-medium text-sm mt-1 sm:mt-0 bg-primary/10 px-3 py-1 rounded-full">Graduated 2018</span>
+                        </div>
+                        <h4 class="text-lg text-gray-300 mb-4">Rajasthan Board of Secondary Education (RBSE)</h4>
+                        
+                        <div class="inline-flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-lg border border-gray-700">
+                            <i class="fas fa-book-open text-primary text-sm"></i>
+                            <span class="text-sm font-medium text-gray-200">Stream: Science-Maths</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4 md:px-8 border-t border-gray-800 bg-gradient-to-b from-darkBg to-[#090d18]">
+        <div class="max-w-4xl mx-auto text-center fade-in-section">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Let's Work Together</h2>
+            <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+                Ready to contribute to your AI model improvements and data annotation needs. Fully equipped for remote work and available for immediate joining.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+                <a href="mailto:vikash.digitalwork@gmail.com" class="flex items-center justify-center gap-3 bg-primary hover:bg-primaryHover text-white py-4 px-8 rounded-xl font-medium transition-all shadow-lg shadow-blue-500/20 group">
+                    <i class="fas fa-envelope text-xl group-hover:scale-110 transition-transform"></i> 
+                    vikash.digitalwork@gmail.com
+                </a>
+                <a href="tel:+916376357871" class="flex items-center justify-center gap-3 bg-cardBg hover:bg-gray-800 text-white py-4 px-8 rounded-xl font-medium border border-gray-700 transition-all group">
+                    <i class="fas fa-phone text-primary text-xl group-hover:scale-110 transition-transform"></i> 
+                    +91 6376357871
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#090d18] py-8 border-t border-gray-800 text-center text-sm text-gray-500">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>&copy; <span id="year"></span> Vikash Singh Naruka. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Functionality -->
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true' || false;
+            btn.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close mobile menu on link click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Navbar blur and shrink on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-0', 'shadow-lg');
+                navbar.classList.remove('py-2');
+            } else {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-0', 'shadow-lg');
+            }
+        });
+
+        // Scroll Animations using Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Stop observing once animated
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
