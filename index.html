@@ -1,508 +1,388 @@
+code
+Html
+play_circle
+download
+content_copy
+expand_less
 <!DOCTYPE html>
-
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vikash Singh Naruka | Portfolio</title>
-<meta name="description" content="Portfolio of Vikash Singh Naruka - AI Training, Data Annotation, and Market Research Specialist.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikash Singh Naruka | AI Training & Data Specialist</title>
+    <meta name="description" content="Portfolio of Vikash Singh Naruka - Specialist in AI Training, RLHF, and Data Annotation.">
+    
+    <!-- Typography & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-code
-Code
-download
-content_copy
-expand_less
-<!-- Tailwind CSS (via CDN) -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- FontAwesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Tailwind Config & Custom Styles -->
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['Inter', 'sans-serif'],
-                },
-                colors: {
-                    darkBg: '#0f172a',
-                    cardBg: '#1e293b',
-                    primary: '#3b82f6',
-                    primaryHover: '#2563eb'
-                }
-            }
+    <style>
+        :root {
+            --accent: #22d3ee; /* Cyan 400 */
+            --bg-dark: #020617; /* Slate 950 */
         }
-    }
-</script>
 
-<style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #0f172a; 
-    }
-    ::-webkit-scrollbar-thumb {
-        background: #334155; 
-        border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: #475569; 
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+        }
 
-    /* Scroll Animations */
-    .fade-in-section {
-        opacity: 0;
-        transform: translateY(20px);
-        visibility: hidden;
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        will-change: opacity, visibility;
-    }
-    .fade-in-section.is-visible {
-        opacity: 1;
-        transform: none;
-        visibility: visible;
-    }
-</style>
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bento-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bento-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(34, 211, 238, 0.2);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Animation */
+        .menu-btn.open div:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-btn.open div:nth-child(2) { opacity: 0; }
+        .menu-btn.open div:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft { animation: pulse-soft 3s infinite; }
+    </style>
 </head>
-<body class="bg-darkBg text-gray-300 font-sans antialiased selection:bg-primary selection:text-white relative">
+<body class="selection:bg-cyan-500/30 selection:text-cyan-200">
 
-code
-Code
-download
-content_copy
-expand_less
-<!-- Navigation Bar -->
-<nav class="fixed w-full z-50 top-0 bg-darkBg/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <a href="#home" class="text-white font-bold text-xl tracking-wider">
-                    VIKASH<span class="text-primary">.</span>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-extrabold tracking-tighter text-cyan-400">VSN<span class="text-white">.</span></span>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#infrastructure" class="nav-link">Infrastructure</a>
+                <a href="#competencies" class="nav-link">Expertise</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="px-4 py-2 bg-cyan-500 text-slate-950 rounded-full hover:bg-cyan-400 transition-colors">Hire Me</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden menu-btn z-50 p-2 outline-none" id="menuToggle">
+                <div class="w-6 h-0.5 bg-white mb-1.5 transition-all"></div>
+                <div class="w-6 h-0.5 bg-white mb-1.5 transition-all"></div>
+                <div class="w-6 h-0.5 bg-white transition-all"></div>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="fixed inset-0 bg-slate-950/95 flex flex-col items-center justify-center space-y-8 text-2xl font-bold translate-x-full transition-transform duration-300 md:hidden">
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#infrastructure" class="mobile-link">Infrastructure</a>
+            <a href="#competencies" class="mobile-link">Expertise</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="mailto:vikash.digitalwork@gmail.com" class="text-cyan-400">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="min-h-screen flex items-center pt-20 px-6 max-w-7xl mx-auto">
+        <div class="w-full">
+            <div class="inline-block px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-widest uppercase mb-6 animate-pulse-soft">
+                Available for Immediate Joining (40+ Hrs/Week)
+            </div>
+            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight leading-none mb-6">
+                VIKASH SINGH <br> <span class="text-cyan-400">NARUKA</span>
+            </h1>
+            <p class="max-w-2xl text-lg md:text-xl text-slate-400 font-light leading-relaxed mb-10">
+                Detail-oriented specialist in <span class="text-white font-normal">AI Training, RLHF, and Data Annotation</span>. Leveraging a strong technical foundation to improve the logic and accuracy of next-generation machine learning models.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#competencies" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-lg hover:bg-cyan-400 transition-all flex items-center gap-2">
+                    View Portfolio <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="mailto:vikash.digitalwork@gmail.com" class="px-8 py-4 border border-slate-700 font-bold rounded-lg hover:bg-slate-800 transition-all">
+                    Contact Me
                 </a>
             </div>
-            <!-- Desktop Menu -->
-            <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-6">
-                    <a href="#about" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
-                    <a href="#skills" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                    <a href="#projects" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                    <a href="#education" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Education</a>
-                    <a href="#contact" class="bg-primary hover:bg-primaryHover text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-blue-500/30">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- Infrastructure Bento Section -->
+    <section id="infrastructure" class="py-24 px-6 max-w-7xl mx-auto reveal">
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold mb-2">Technical Infrastructure</h2>
+            <div class="w-20 h-1.5 bg-cyan-400"></div>
+            <p class="mt-4 text-slate-400">Equipped for 100% remote collaboration from Jaipur, Rajasthan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="bento-card p-8 rounded-3xl md:col-span-2 flex flex-col justify-between">
+                <i data-lucide="laptop" class="text-cyan-400 w-10 h-10 mb-6"></i>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Hardware Setup</h3>
+                    <p class="text-slate-400 italic">Personal Laptop (Windows environment) dedicated to professional deliverables.</p>
                 </div>
             </div>
-            <!-- Mobile menu button -->
-            <div class="-mr-2 flex md:hidden">
-                <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+            <div class="bento-card p-8 rounded-3xl md:col-span-2 flex flex-col justify-between">
+                <i data-lucide="wifi" class="text-cyan-400 w-10 h-10 mb-6"></i>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Connectivity</h3>
+                    <p class="text-slate-400">High-speed Fiber Internet, optimized for video calls and large dataset processing.</p>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="md:hidden hidden bg-cardBg border-b border-gray-800 absolute w-full" id="mobile-menu">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#about" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-            <a href="#skills" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
-            <a href="#projects" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-            <a href="#education" class="mobile-link text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Education</a>
-            <a href="#contact" class="mobile-link text-primary font-bold block px-3 py-2 rounded-md text-base">Contact</a>
-        </div>
-    </div>
-</nav>
-
-<!-- Hero Section -->
-<header id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 flex flex-col items-center justify-center min-h-[95vh] text-center fade-in-section">
-    
-    <!-- Profile Image Placeholder (Optional) -->
-    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gray-800 mb-8 overflow-hidden bg-gray-700 flex items-center justify-center">
-        <!-- Replace with actual image URL: <img src="profile.jpg" alt="Vikash" class="w-full h-full object-cover"> -->
-        <i class="fas fa-user text-6xl text-gray-500"></i>
-    </div>
-
-    <span class="text-primary font-semibold tracking-widest mb-4 uppercase text-sm">Portfolio & Resume</span>
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-        Vikash Singh Naruka
-    </h1>
-    <p class="text-lg md:text-2xl text-gray-400 max-w-3xl mb-8 leading-relaxed">
-        Tech enthusiast seeking remote roles in <span class="text-gray-200 font-semibold">AI Training, Data Annotation</span>, and <span class="text-gray-200 font-semibold">Market Research</span>.
-    </p>
-    
-    <div class="flex flex-wrap gap-4 justify-center items-center mb-10 text-sm md:text-base text-gray-400">
-        <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-primary"></i> Jaipur, Rajasthan</div>
-        <div class="hidden sm:block text-gray-600">|</div>
-        <div class="flex items-center gap-2"><i class="fas fa-phone text-primary"></i> +91 6376357871</div>
-        <div class="hidden sm:block text-gray-600">|</div>
-        <div class="flex items-center gap-2"><i class="fas fa-envelope text-primary"></i> vikash.digitalwork@gmail.com</div>
-    </div>
-
-    <div class="flex gap-4">
-        <a href="#contact" class="bg-primary hover:bg-primaryHover text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg shadow-blue-500/25">
-            Hire Me
-        </a>
-        <a href="#about" class="bg-transparent border border-gray-600 hover:border-gray-400 text-white px-8 py-3 rounded-full font-medium transition-all">
-            About Me
-        </a>
-    </div>
-</header>
-
-<!-- About Section -->
-<section id="about" class="py-20 px-4 md:px-8 border-t border-gray-800 bg-cardBg/30">
-    <div class="max-w-7xl mx-auto fade-in-section">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-3xl font-bold text-white">Professional Summary</h2>
-            <div class="h-px bg-gray-700 flex-grow"></div>
-        </div>
-        
-        <div class="grid lg:grid-cols-3 gap-10">
-            <div class="lg:col-span-2 space-y-6 text-gray-400 leading-relaxed text-lg">
-                <p>
-                    I am a detail-oriented 12th-grade graduate with a strong technical foundation and a dedicated home office setup. I am highly proficient in AI prompting, data categorization, and basic software development.
-                </p>
-                <p>
-                    Currently, I am seeking a remote role to leverage my analytical skills and programming knowledge in improving machine learning models. I am disciplined, highly adaptable to new platforms, and focused on delivering high-fidelity results.
-                </p>
-                
-                <div class="pt-6">
-                    <h3 class="text-xl font-bold text-white mb-6">Key Strengths</h3>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="bg-cardBg p-5 rounded-xl border border-gray-700 hover:border-primary/50 transition">
-                            <h4 class="text-white font-semibold mb-2 flex items-center gap-2"><i class="fas fa-clock text-primary"></i> Reliability</h4>
-                            <p class="text-sm text-gray-400">Disciplined approach to remote work with a strong focus on meeting strict deadlines.</p>
-                        </div>
-                        <div class="bg-cardBg p-5 rounded-xl border border-gray-700 hover:border-primary/50 transition">
-                            <h4 class="text-white font-semibold mb-2 flex items-center gap-2"><i class="fas fa-cogs text-primary"></i> Technical Adaptability</h4>
-                            <p class="text-sm text-gray-400">Quick to master new annotation platforms and proprietary software tools.</p>
-                        </div>
-                        <div class="bg-cardBg p-5 rounded-xl border border-gray-700 hover:border-primary/50 transition sm:col-span-2">
-                            <h4 class="text-white font-semibold mb-2 flex items-center gap-2"><i class="fas fa-bullseye text-primary"></i> Accuracy</h4>
-                            <p class="text-sm text-gray-400">Committed to "zero-error" data entry and high-fidelity research reporting.</p>
-                        </div>
+            <div class="bento-card p-8 rounded-3xl md:col-span-1">
+                <i data-lucide="clock" class="text-cyan-400 w-8 h-8 mb-4"></i>
+                <h3 class="font-bold">40+ Hours</h3>
+                <p class="text-sm text-slate-400">Weekly availability including weekend shifts.</p>
+            </div>
+            <div class="bento-card p-8 rounded-3xl md:col-span-1">
+                <i data-lucide="map-pin" class="text-cyan-400 w-8 h-8 mb-4"></i>
+                <h3 class="font-bold">Location</h3>
+                <p class="text-sm text-slate-400">Jaipur, Rajasthan (Remote Native).</p>
+            </div>
+            <div class="bento-card p-8 rounded-3xl md:col-span-2 flex items-center gap-6">
+                <div class="flex-1">
+                    <h3 class="font-bold mb-1">Typing Speed</h3>
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div class="bg-cyan-400 h-full w-[60%]"></div>
                     </div>
+                    <p class="text-xs mt-2 text-slate-400">30+ WPM (Fast & Accurate)</p>
                 </div>
-            </div>
-
-            <!-- Infrastructure Sidebar -->
-            <div class="bg-cardBg p-6 rounded-2xl border border-gray-700 h-fit shadow-xl">
-                <h3 class="text-xl font-bold text-white mb-6 border-b border-gray-700 pb-4">Profile & Infrastructure</h3>
-                <ul class="space-y-6">
-                    <li class="flex items-start gap-4">
-                        <div class="bg-gray-800 p-3 rounded-lg text-primary">
-                            <i class="fas fa-laptop w-5 text-center"></i>
-                        </div>
-                        <div>
-                            <strong class="block text-gray-200">Hardware</strong>
-                            <span class="text-sm text-gray-400">Personal Laptop (Windows)</span>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="bg-gray-800 p-3 rounded-lg text-primary">
-                            <i class="fas fa-wifi w-5 text-center"></i>
-                        </div>
-                        <div>
-                            <strong class="block text-gray-200">Connectivity</strong>
-                            <span class="text-sm text-gray-400">High-speed Fiber Internet (Reliable for video calls & large datasets)</span>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="bg-gray-800 p-3 rounded-lg text-primary">
-                            <i class="fas fa-calendar-check w-5 text-center"></i>
-                        </div>
-                        <div>
-                            <strong class="block text-gray-200">Availability</strong>
-                            <span class="text-sm text-gray-400">40+ hours/week. Immediate joining; flexible for weekend shifts.</span>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="bg-gray-800 p-3 rounded-lg text-primary">
-                            <i class="fas fa-home w-5 text-center"></i>
-                        </div>
-                        <div>
-                            <strong class="block text-gray-200">Location</strong>
-                            <span class="text-sm text-gray-400">Jaipur, Rajasthan (100% remote collaboration ready)</span>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Skills Section -->
-<section id="skills" class="py-20 px-4 md:px-8 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto fade-in-section">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-3xl font-bold text-white">Core Competencies & Skills</h2>
-            <div class="h-px bg-gray-700 flex-grow"></div>
-        </div>
-
-        <!-- Core Competencies -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <div class="bg-cardBg p-6 rounded-2xl border border-gray-800 hover:-translate-y-1 hover:border-primary/50 transition duration-300">
-                <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center mb-5 text-primary">
-                    <i class="fas fa-brain text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white mb-3">AI Training & RLHF</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Experience interacting with LLMs (ChatGPT, Gemini) to test response accuracy and safety protocols.</p>
+    <!-- Core Competencies -->
+    <section id="competencies" class="py-24 bg-slate-900/30 reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Core Competencies</h2>
+                <p class="text-slate-400 mt-2">Specialized skill set for high-fidelity model training.</p>
             </div>
 
-            <div class="bg-cardBg p-6 rounded-2xl border border-gray-800 hover:-translate-y-1 hover:border-primary/50 transition duration-300">
-                <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center mb-5 text-primary">
-                    <i class="fas fa-tags text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white mb-3">Data Annotation</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">High attention to detail in labeling, tagging, and categorizing multi-modal data (text, image, and code).</p>
-            </div>
-
-            <div class="bg-cardBg p-6 rounded-2xl border border-gray-800 hover:-translate-y-1 hover:border-primary/50 transition duration-300">
-                <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center mb-5 text-primary">
-                    <i class="fas fa-code text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white mb-3">Code Evaluation</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Familiar with Python, JavaScript, HTML, and CSS, enabling the evaluation of AI-generated code snippets.</p>
-            </div>
-
-            <div class="bg-cardBg p-6 rounded-2xl border border-gray-800 hover:-translate-y-1 hover:border-primary/50 transition duration-300">
-                <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center mb-5 text-primary">
-                    <i class="fas fa-search text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white mb-3">Digital Research</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Expert in verifying facts, cross-referencing sources, and gathering complex market intelligence.</p>
-            </div>
-        </div>
-
-        <!-- Technical Skills Layout -->
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-800">
-                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                    <i class="fas fa-tools text-primary"></i> Technical Skills
-                </h3>
-                
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Programming</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-gray-800 text-gray-200 rounded-lg text-sm font-medium border border-gray-700">Python (Basic)</span>
-                            <span class="px-4 py-2 bg-gray-800 text-gray-200 rounded-lg text-sm font-medium border border-gray-700">JavaScript (Basic)</span>
-                            <span class="px-4 py-2 bg-gray-800 text-gray-200 rounded-lg text-sm font-medium border border-gray-700">HTML / CSS</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h4 class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Software & Tools</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-gray-800 text-gray-200 rounded-lg text-sm font-medium border border-gray-700">Google Workspace</span>
-                            <span class="px-4 py-2 bg-gray-800 text-gray-200 rounded-lg text-sm font-medium border border-gray-700">Microsoft Excel</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h4 class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Data Entry</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-primary/10 text-primary border border-primary/20 rounded-lg text-sm font-semibold">Fast & Accurate (30+ WPM)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-800 flex flex-col justify-center">
-                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                    <i class="fas fa-language text-primary"></i> Languages
-                </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="space-y-4">
-                    <div class="flex items-center justify-between p-4 bg-gray-800 rounded-xl border border-gray-700">
-                        <span class="text-gray-200 font-medium text-lg">Hindi</span>
-                        <span class="text-primary text-sm font-bold bg-primary/10 px-3 py-1 rounded-full">Fluent</span>
+                    <div class="p-4 bg-cyan-500/10 rounded-xl inline-block text-cyan-400">
+                        <i data-lucide="brain-circuit"></i>
                     </div>
-                    <div class="flex items-center justify-between p-4 bg-gray-800 rounded-xl border border-gray-700">
-                        <span class="text-gray-200 font-medium text-lg">English</span>
-                        <span class="text-gray-400 text-sm font-medium">Proficient (Written & Verbal)</span>
+                    <h3 class="text-xl font-bold">AI Training & RLHF</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Experienced in interacting with LLMs (ChatGPT, Gemini) to test response accuracy, safety, and alignment logic.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-cyan-500/10 rounded-xl inline-block text-cyan-400">
+                        <i data-lucide="tags"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Data Annotation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">High attention to detail in labeling, tagging, and categorizing multi-modal data including text, image, and code.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-cyan-500/10 rounded-xl inline-block text-cyan-400">
+                        <i data-lucide="code-2"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Code Evaluation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Familiarity with Python, JS, HTML, and CSS enables critical evaluation of AI-generated code snippets.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-cyan-500/10 rounded-xl inline-block text-cyan-400">
+                        <i data-lucide="search"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Digital Research</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Expert at verifying facts, cross-referencing sources, and gathering complex market intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / Bento Grid 2 -->
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto reveal">
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold mb-2">Projects & Initiatives</h2>
+            <div class="w-20 h-1.5 bg-cyan-400"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 bento-card rounded-3xl overflow-hidden group">
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded">ONGOING</span>
+                        <i data-lucide="external-link" class="text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Evaluation & Prompt Engineering</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Actively experimenting with advanced prompt engineering techniques to understand how various inputs affect LLM output quality and logical reasoning. Developing frameworks for structured model testing.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-slate-800 rounded-full text-xs">LLM Evaluation</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded-full text-xs">Prompt Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card rounded-3xl p-8 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Technical Upskilling</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Currently completing self-paced modules in Data Labeling methodologies and advanced web research techniques to stay at the frontier of AI training standards.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <div class="flex justify-between text-xs mb-2">
+                        <span>Course Progress</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-1.5 rounded-full">
+                        <div class="bg-cyan-400 h-full w-[85%]"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Projects Section -->
-<section id="projects" class="py-20 px-4 md:px-8 border-t border-gray-800 bg-cardBg/30">
-    <div class="max-w-7xl mx-auto fade-in-section">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-3xl font-bold text-white">Projects & Initiatives</h2>
-            <div class="h-px bg-gray-700 flex-grow"></div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="bg-cardBg rounded-2xl p-8 border border-gray-800 relative overflow-hidden group hover:border-primary/30 transition-colors">
-                <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
-                <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-2xl font-bold text-white">AI Evaluation Project</h3>
-                    <div class="bg-gray-800 p-3 rounded-xl text-primary">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                </div>
-                <p class="text-gray-400 leading-relaxed text-lg mb-6">
-                    Actively experimenting with prompt engineering to understand how different inputs affect LLM output quality and logic. Focus on rigorous testing and evaluation methodologies.
-                </p>
-                <div class="flex gap-2">
-                    <span class="text-xs font-semibold px-3 py-1.5 bg-gray-800 text-gray-300 rounded-md border border-gray-700">Prompt Engineering</span>
-                    <span class="text-xs font-semibold px-3 py-1.5 bg-gray-800 text-gray-300 rounded-md border border-gray-700">LLM Output Analysis</span>
+    <!-- Skills & Education Table -->
+    <section class="py-24 px-6 max-w-7xl mx-auto reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Education -->
+            <div>
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <i data-lucide="graduation-cap" class="text-cyan-400"></i> Education
+                </h3>
+                <div class="border-l-2 border-slate-800 pl-8 relative">
+                    <div class="absolute w-4 h-4 bg-cyan-400 rounded-full -left-[9px] top-0 shadow-[0_0_10px_#22d3ee]"></div>
+                    <h4 class="text-lg font-bold">Higher Secondary School (12th Grade)</h4>
+                    <p class="text-cyan-400 font-medium">RBSE - Rajasthan Board of Secondary Education</p>
+                    <p class="text-sm text-slate-500 mt-1">Class of 2018 | Stream: Science-Maths</p>
                 </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="bg-cardBg rounded-2xl p-8 border border-gray-800 relative overflow-hidden group hover:border-primary/30 transition-colors">
-                <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
-                <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-2xl font-bold text-white">Technical Upskilling</h3>
-                    <div class="bg-gray-800 p-3 rounded-xl text-primary">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                </div>
-                <p class="text-gray-400 leading-relaxed text-lg mb-6">
-                    Currently completing self-paced modules in Data Labeling methodologies and advanced web research techniques to ensure adherence to industry standards.
-                </p>
-                <div class="flex gap-2">
-                    <span class="text-xs font-semibold px-3 py-1.5 bg-gray-800 text-gray-300 rounded-md border border-gray-700">Data Labeling</span>
-                    <span class="text-xs font-semibold px-3 py-1.5 bg-gray-800 text-gray-300 rounded-md border border-gray-700">Web Research</span>
+            <!-- Technical Skills Summary -->
+            <div>
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <i data-lucide="layers" class="text-cyan-400"></i> Technical Skills
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm">Python (Basic)</span>
+                    <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm">JavaScript (Basic)</span>
+                    <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm">HTML5 / CSS3</span>
+                    <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm">Google Workspace</span>
+                    <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm">MS Excel</span>
+                    <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm">English (Proficient)</span>
+                    <span class="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm font-bold text-cyan-400">Hindi (Fluent)</span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Education Section -->
-<section id="education" class="py-20 px-4 md:px-8 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto fade-in-section">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-3xl font-bold text-white">Education</h2>
-            <div class="h-px bg-gray-700 flex-grow"></div>
-        </div>
-
-        <div class="max-w-4xl">
-            <div class="relative pl-8 md:pl-0">
-                <div class="hidden md:block absolute w-px h-full bg-gray-700 left-[50%] transform -translate-x-1/2"></div>
-                
-                <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-8">
-                    <div class="order-1 md:w-5/12 hidden md:block"></div>
-                    
-                    <div class="absolute w-5 h-5 bg-primary rounded-full -left-[29px] md:left-[50%] transform md:-translate-x-1/2 shadow-[0_0_15px_rgba(59,130,246,0.6)] border-4 border-darkBg z-10"></div>
-                    
-                    <div class="order-1 bg-cardBg rounded-2xl p-6 md:p-8 border border-gray-800 w-full md:w-5/12 shadow-xl hover:border-primary/30 transition-colors relative">
-                        <!-- Arrow for desktop -->
-                        <div class="hidden md:block absolute top-6 -left-3 w-3 h-3 bg-cardBg border-l border-b border-gray-800 transform rotate-45"></div>
-                        
-                        <div class="flex flex-wrap justify-between items-center mb-4 gap-2">
-                            <span class="text-primary font-bold text-sm bg-primary/10 px-3 py-1 rounded-full">Graduated 2018</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Higher Secondary School (12th Grade)</h3>
-                        <h4 class="text-base text-gray-400 mb-5">Rajasthan Board of Secondary Education (RBSE)</h4>
-                        
-                        <div class="inline-flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-lg border border-gray-700">
-                            <i class="fas fa-book-open text-primary text-sm"></i>
-                            <span class="text-sm font-medium text-gray-200">Stream: Science-Maths</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-slate-900/50 border-t border-slate-800 py-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Let's build better <span class="text-cyan-400">AI together.</span></h2>
+            <p class="text-slate-400 mb-10 max-w-lg mx-auto">Currently seeking a remote role in AI Training, Data Annotation, or Market Research.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                <a href="mailto:vikash.digitalwork@gmail.com" class="flex items-center gap-3 text-lg hover:text-cyan-400 transition-colors">
+                    <i data-lucide="mail"></i> vikash.digitalwork@gmail.com
+                </a>
+                <span class="hidden md:block text-slate-700">|</span>
+                <a href="tel:+916376357871" class="flex items-center gap-3 text-lg hover:text-cyan-400 transition-colors">
+                    <i data-lucide="phone"></i> +91 6376357871
+                </a>
             </div>
+
+            <p class="text-slate-600 text-xs uppercase tracking-[0.2em]">© 2024 Vikash Singh Naruka • Jaipur, Rajasthan</p>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- Contact Section -->
-<section id="contact" class="py-24 px-4 md:px-8 border-t border-gray-800 bg-gradient-to-b from-darkBg to-[#090d18]">
-    <div class="max-w-4xl mx-auto text-center fade-in-section">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Let's Work Together</h2>
-        <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Ready to contribute to your AI model improvements and data annotation needs. Fully equipped for remote work and available for immediate joining.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
-            <a href="mailto:vikash.digitalwork@gmail.com" class="flex items-center justify-center gap-3 bg-primary hover:bg-primaryHover text-white py-4 px-8 rounded-full font-medium transition-all shadow-lg shadow-blue-500/20 group">
-                <i class="fas fa-envelope text-xl group-hover:scale-110 transition-transform"></i> 
-                vikash.digitalwork@gmail.com
-            </a>
-            <a href="tel:+916376357871" class="flex items-center justify-center gap-3 bg-cardBg hover:bg-gray-800 text-white py-4 px-8 rounded-full font-medium border border-gray-700 transition-all group">
-                <i class="fas fa-phone text-primary text-xl group-hover:scale-110 transition-transform"></i> 
-                +91 6376357871
-            </a>
-        </div>
-    </div>
-</section>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-<!-- Footer -->
-<footer class="bg-[#090d18] py-8 border-t border-gray-800 text-center text-sm text-gray-500">
-    <div class="max-w-7xl mx-auto px-4">
-        <p>&copy; <span id="year"></span> Vikash Singh Naruka. All rights reserved.</p>
-        <p class="mt-2 text-xs">Based in Jaipur, Rajasthan, India.</p>
-    </div>
-</footer>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-<!-- JavaScript -->
-<script>
-    // Set dynamic year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile Menu Toggle
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !isExpanded);
-    });
-
-    // Close mobile menu on link click
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.add('hidden');
-            btn.setAttribute('aria-expanded', 'false');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('open');
+            mobileMenu.classList.toggle('translate-x-full');
         });
-    });
 
-    // Navbar styling on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('shadow-lg', 'bg-darkBg/95');
-            navbar.classList.remove('bg-darkBg/90');
-        } else {
-            navbar.classList.add('bg-darkBg/90');
-            navbar.classList.remove('shadow-lg', 'bg-darkBg/95');
-        }
-    });
-
-    // Scroll Animations using Intersection Observer
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Animate only once
-            }
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('open');
+                mobileMenu.classList.add('translate-x-full');
+            });
         });
-    }, observerOptions);
 
-    document.querySelectorAll('.fade-in-section').forEach(section => {
-        observer.observe(section);
-    });
-</script>
+        // Intersection Observer for Scroll Reveals
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth Scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
